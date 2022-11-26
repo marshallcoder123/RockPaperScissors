@@ -20,10 +20,7 @@
             return computerPick;
         }
 
-        function getPlayerChoice() {
-            playerPick = input('Do you choose "Rock", "Paper", or "Scissors"?')
-            return playerPick.toLower;
-        }
+        
 
         function playRound(playerPick, computerPick) {
             let isWinner = false;
@@ -48,8 +45,33 @@
             return isWinner;
         }
 
-        
+        function game() {
+            let userPoints = 0;
+            let computerPoints = 0;
 
+            console.log("Your about to play 5 rounds of rock paper scissors.")
+            for (let i = 0; i < 5; i++) {
+                let playerPick = prompt('Do you choose "Rock", "Paper", or "Scissors"?').toLowerCase();
+                let computerPick = getComputerChoice();
+                let winner = playRound(playerPick, computerPick);
+
+                if (winner) {
+                    userPoints++;
+                } else if (!winner) {
+                    computerPoints++;
+                }
+            }
+
+            if (userPoints > computerPoints) {
+                console.log(`You win with ${userPoints} points!`);
+            } else if (computerPoints > userPoints) {
+                console.log(`You lost with ${userPoints} points!`);
+            } else {
+                console.log("Its a draw!")
+            }
+        }
+
+        game();
     </script>
 </head>
 <body>
