@@ -22,8 +22,33 @@
 
         function getPlayerChoice() {
             playerPick = input('Do you choose "Rock", "Paper", or "Scissors"?')
-            return playerPick;
+            return playerPick.toLower;
         }
+
+        function playRound(playerPick, computerPick) {
+            let isWinner = false;
+            if (playerPick == computerPick) {
+                console.log(`It's a tie! You both picked ${playerPick}`)
+                return;
+            }
+            if (playerPick == "rock" && computerPick == "scissors") {
+                console.log("You win! The computer picked scissors.");
+                isWinner = true;
+                return isWinner;
+            } else if (playerPick == "paper" && computerPick == "rock") {
+                console.log("You win! The computer picked rock.")
+                isWinner = true;
+                return isWinner;
+            } else if (playerPick == "scissors" && computerPick == "paper") {
+                console.log("You win! The computer picked paper.")
+                isWinner = true;
+                return isWinner;
+            }
+            console.log(`You lose. The computer picked ${computerPick}.`)
+            return isWinner;
+        }
+
+        
 
     </script>
 </head>
